@@ -147,7 +147,7 @@ body{font-family:'Barlow',sans-serif;color:var(--ink);font-size:16px;line-height
 .met .ml{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px;}
 
 /* DID IT BUTTON */
-.did-it-btn{width:100%;padding:16px;border:none;border-radius:12px;background:#8FC5B7 !important;color:#fff !important;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:12px;box-shadow:0 4px 16px rgba(143,197,183,0.4) !important;transition:transform .1s;}
+.did-it-btn{width:100%;padding:16px;border:none;border-radius:12px;background:#8FC5B7 !important;color:#fff !important;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:12px;transition:transform .1s;box-shadow:inset 0 1px 0 rgba(255,255,255,0.3),inset 0 -2px 0 rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.2) !important;}
 .did-it-btn:active{transform:scale(.97);}
 
 /* CONFETTI */
@@ -263,7 +263,7 @@ input[type=range].slider::-webkit-slider-thumb{-webkit-appearance:none;width:28p
 
 
 /* CHECKLIST SPLIT TAP */
-.cl-item{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border);background:var(--card);}
 .cl-item:last-child{border-bottom:none;}
 .cl-dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;margin-top:2px;cursor:pointer;}
 .cl-dot:active{transform:scale(.9);}
@@ -722,6 +722,14 @@ table.sched tr.rest td{background:var(--bg2);}
     transparent 100%);
   pointer-events:none;
 }
+
+
+/* CHECKLIST EMOJI + ALTERNATING */
+.cl-ico{font-size:20px;line-height:1;flex-shrink:0;width:28px;text-align:center;}
+.cl-alt{background:rgba(0,0,0,0.03);}
+@media(prefers-color-scheme:dark){.cl-alt{background:rgba(255,255,255,0.03);}}
+.cl-item:first-child{border-radius:10px 10px 0 0;}
+.cl-item:last-child{border-radius:0 0 10px 10px;border-bottom:none;}
 
 /* TOAST */
 .toast{position:fixed;top:calc(env(safe-area-inset-top,44px) + 70px);left:50%;transform:translateX(-50%);z-index:999;background:var(--mint);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:20px;pointer-events:none;opacity:0;transition:opacity .3s;white-space:nowrap;box-shadow:0 4px 16px var(--shadow);}
@@ -2345,18 +2353,18 @@ function launchConfetti(){
 
 // ── CHECKLIST ──
 const CHECKS=[
-  {id:'w500',   cat:'☀️ Morning',  label:'Drink 500ml water immediately on waking',          nav:'sleep'},
-  {id:'bfast',  cat:'☀️ Morning',  label:'Eat a high protein breakfast',                      nav:'nutrition'},
-  {id:'mob',    cat:'☀️ Morning',  label:'10 min mobility — hip flexors + glutes',            nav:'mobility'},
-  {id:'desk',   cat:'🖥 At Desk',  label:'1L bottle on desk — finish before noon',            nav:'sleep'},
-  {id:'stand',  cat:'🖥 At Desk',  label:'Stand up + walk every 45–60 min',                  nav:'mobility'},
-  {id:'preride',cat:'🚴 Training', label:'500ml water 2 hrs before riding',                  nav:'sleep'},
-  {id:'train',  cat:'🚴 Training', label:'Complete today\'s training session',             nav:'plan'},
-  {id:'lunch',  cat:'🍽 Meals',    label:'Eat a high protein lunch',                         nav:'nutrition'},
-  {id:'postride',cat:'🍽 Meals',   label:'Protein + carbs within 30 min post-ride',          nav:'nutrition'},
-  {id:'dinner', cat:'🍽 Meals',    label:'Eat a protein-forward dinner, lighter carbs',      nav:'nutrition'},
-  {id:'screens',cat:'🌙 Evening',  label:'Screens to night mode by 9:30 PM',                 nav:'sleep'},
-  {id:'bed',    cat:'🌙 Evening',  label:'In bed by 10:30 PM',                               nav:'sleep'},
+  {id:'w500',    cat:'☀️ Morning',  ico:'💧', label:'Drink 500ml water immediately on waking',       nav:'sleep'},
+  {id:'bfast',   cat:'☀️ Morning',  ico:'🍳', label:'Eat a high protein breakfast',                  nav:'nutrition'},
+  {id:'mob',     cat:'☀️ Morning',  ico:'🤸', label:'10 min mobility — hip flexors + glutes',        nav:'mobility'},
+  {id:'desk',    cat:'🖥 At Desk',  ico:'💧', label:'1L bottle on desk — finish before noon',        nav:'sleep'},
+  {id:'stand',   cat:'🖥 At Desk',  ico:'🚶', label:'Stand up + walk every 45–60 min',               nav:'mobility'},
+  {id:'preride', cat:'🚴 Training', ico:'💧', label:'500ml water 2 hrs before riding',               nav:'sleep'},
+  {id:'train',   cat:'🚴 Training', ico:'🚴', label:'Complete today\'s training session',           nav:'plan'},
+  {id:'lunch',   cat:'🍽 Meals',    ico:'🥗', label:'Eat a high protein lunch',                      nav:'nutrition'},
+  {id:'postride',cat:'🍽 Meals',    ico:'🥤', label:'Protein + carbs within 30 min post-ride',       nav:'nutrition'},
+  {id:'dinner',  cat:'🍽 Meals',    ico:'🍽', label:'Eat a protein-forward dinner, lighter carbs',   nav:'nutrition'},
+  {id:'screens', cat:'🌙 Evening',  ico:'📵', label:'Screens to night mode by 9:30 PM',              nav:'sleep'},
+  {id:'bed',     cat:'🌙 Evening',  ico:'🛌', label:'In bed by 10:30 PM',                            nav:'sleep'},
 ];
 function loadChecklist(){
   const today=new Date().toDateString();
@@ -2396,8 +2404,9 @@ function loadChecklist(){
     }
     return c;
   });
-  document.getElementById('checklistContainer').innerHTML=checks.map(c=>`
-    <div class="cl-item">
+  document.getElementById('checklistContainer').innerHTML=checks.map((c,i)=>`
+    <div class="cl-item${i%2===0?'':' cl-alt'}">
+      <div class="cl-ico">${c.ico||'✔'}</div>
       <div class="cl-dot${stored[c.id]?' done':''}" onclick="toggleCheck('${c.id}','${today}',this.closest('.cl-item'))">${stored[c.id]?'✓':''}</div>
       <div class="cl-item-body">
         <div class="cl-cat">${c.cat}</div>
