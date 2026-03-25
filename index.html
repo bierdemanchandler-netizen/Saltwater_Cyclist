@@ -731,6 +731,15 @@ table.sched tr.rest td{background:var(--bg2);}
 .cl-item:first-child{border-radius:10px 10px 0 0;}
 .cl-item:last-child{border-radius:0 0 10px 10px;border-bottom:none;}
 
+
+/* HYDRATION RECIPES */
+.recipe-ingredient{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);}
+.recipe-ingredient:last-of-type{border-bottom:none;}
+.ri-qty{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--mint);width:60px;flex-shrink:0;}
+.ri-item{font-size:15px;color:var(--ink);flex:1;font-weight:500;}
+.ri-note{font-size:12px;color:var(--ink3);font-style:italic;flex-shrink:0;text-align:right;}
+.recipe-method{margin-top:14px;padding:12px 14px;background:var(--bg2);border-radius:8px;font-size:14px;color:var(--ink2);line-height:1.7;border-left:3px solid var(--mint);}
+
 /* TOAST */
 .toast{position:fixed;top:calc(env(safe-area-inset-top,44px) + 70px);left:50%;transform:translateX(-50%);z-index:999;background:var(--mint);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:20px;pointer-events:none;opacity:0;transition:opacity .3s;white-space:nowrap;box-shadow:0 4px 16px var(--shadow);}
 .toast.show{opacity:1;}
@@ -802,8 +811,21 @@ table.sched tr.rest td{background:var(--bg2);}
     </div>
   </div>
 
-  <div class="slabel">Today's Non-Negotiables</div>
-  <div class="card" id="checklistContainer"></div>
+  <div class="routine-block" style="margin-bottom:12px;">
+    <div class="routine-block-hdr" onclick="toggleRoutine('nonneg')" style="padding:14px 18px;">
+      <div class="rb-left">
+        <div class="rb-ico">✅</div>
+        <div class="rb-info">
+          <div class="rb-title">Today's Non-Negotiables</div>
+          <div class="rb-meta" id="nnMeta">Tap to review your daily checklist</div>
+        </div>
+      </div>
+      <div class="rb-arr" id="rba-nonneg">›</div>
+    </div>
+    <div class="routine-block-body" id="rbb-nonneg" style="display:none;padding:0;">
+      <div id="checklistContainer" style="border-radius:0 0 14px 14px;overflow:hidden;"></div>
+    </div>
+  </div>
 
   <div class="slabel">Hydration — Goal: 10 glasses (3 L)</div>
   <div class="card">
@@ -1551,6 +1573,45 @@ table.sched tr.rest td{background:var(--bg2);}
       </div>
     </div>
   </div>
+
+  <div class="slabel">Hydration Recipes</div>
+
+  <div class="routine-block">
+    <div class="routine-block-hdr" onclick="toggleRoutine('recipe1')">
+      <div class="rb-left"><div class="rb-ico">🍊</div><div class="rb-info"><div class="rb-title">Homemade Electrolyte Drink</div><div class="rb-meta">Daily drink · Natural ingredients</div></div></div>
+      <div class="rb-arr" id="rba-recipe1">›</div>
+    </div>
+    <div class="routine-block-body" id="rbb-recipe1" style="display:none;">
+      <div class="cn sky"><div class="cnl">Why this works</div><div class="cn-body">Real sodium and potassium from whole food sources. No artificial ingredients. The ginger helps with headaches and digestion. Great any time of day — not just around training.</div></div>
+      <div class="recipe-ingredient"><span class="ri-qty">⅛ tsp</span><span class="ri-item">fine sea salt</span><span class="ri-note">~300mg sodium</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">⅛ tsp</span><span class="ri-item">cream of tartar</span><span class="ri-note">~125mg potassium</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">⅛ tsp</span><span class="ri-item">ground ginger</span><span class="ri-note">optional — great for headaches</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">1 tsp</span><span class="ri-item">lime juice</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">2 tsp</span><span class="ri-item">maple syrup</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">½ cup</span><span class="ri-item">orange or grapefruit juice</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">½ cup</span><span class="ri-item">water</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">handful</span><span class="ri-item">ice</span></div>
+      <div class="recipe-method">Mix all ingredients in a glass or shaker. Stir well until salt is dissolved. Drink daily — not just on ride days.</div>
+    </div>
+  </div>
+
+  <div class="routine-block">
+    <div class="routine-block-hdr" onclick="toggleRoutine('recipe2')">
+      <div class="rb-left"><div class="rb-ico">⚡</div><div class="rb-info"><div class="rb-title">Energy Electrolyte Drink</div><div class="rb-meta">Pre-ride · Science-based · Optional caffeine</div></div></div>
+      <div class="rb-arr" id="rba-recipe2">›</div>
+    </div>
+    <div class="routine-block-body" id="rbb-recipe2" style="display:none;">
+      <div class="cn orange"><div class="cnl">Why this works</div><div class="cn-body">Matched to your blood's osmolality for fastest absorption. Caffeine is one of the most researched ergogenic aids in sports science — it enhances sodium absorption, delays fatigue, and improves power output. Recommended 20–30 min before a ride.</div></div>
+      <div class="recipe-ingredient"><span class="ri-qty">600ml</span><span class="ri-item">water</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">2½ tsp</span><span class="ri-item">sugar or maltodextrin</span><span class="ri-note">maltodextrin preferred for longer rides</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">¼ tsp</span><span class="ri-item">fine sea salt</span><span class="ri-note">~400mg sodium</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">1–2 shots</span><span class="ri-item">cold brew or cooled espresso</span><span class="ri-note">optional — recommended before rides</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">to taste</span><span class="ri-item">citrus juice</span><span class="ri-note">orange or grapefruit works well</span></div>
+      <div class="recipe-ingredient"><span class="ri-qty">handful</span><span class="ri-item">ice</span></div>
+      <div class="recipe-method">Mix water, sugar, and salt until fully dissolved. Add cold brew if using. Add citrus to taste. Drink 20–30 min before your ride. Skip the caffeine for evening sessions.</div>
+    </div>
+  </div>
+
 </div>
 <div class="screen" id="screen-mobility">
 
@@ -2529,6 +2590,11 @@ function renderWeightHistory(){
     const dHtml=delta?`<span class="wl-d ${parseFloat(delta)<0?'down':'up'}">${parseFloat(delta)>0?'+':''}${delta}</span>`:'<span style="font-size:12px;color:var(--ink3);">Start</span>';
     return`<div class="wl-row"><span class="wl-date">${e.date}</span><span class="wl-lbs">${e.lbs}</span><div style="text-align:right;">${dHtml}<div style="font-size:11px;color:var(--ink3);margin-top:2px;">${toGoal>0?toGoal+' to go':'🎯 Goal!'}</div></div></div>`;
   }).join('');
+  // Update summary in header
+  const total=checks.length;
+  const done=Object.values(stored).filter(Boolean).length;
+  const meta=document.getElementById('nnMeta');
+  if(meta) meta.textContent=done===0?'Tap to review your daily checklist':done===total?'All '+total+' done ✓':done+' of '+total+' complete';
 }
 function renderWeightMilestones(){
   const el=document.getElementById('weightMilestones');
