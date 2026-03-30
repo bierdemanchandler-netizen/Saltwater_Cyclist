@@ -740,6 +740,27 @@ table.sched tr.rest td{background:var(--bg2);}
 .ri-note{font-size:12px;color:var(--ink3);font-style:italic;flex-shrink:0;text-align:right;}
 .recipe-method{margin-top:14px;padding:12px 14px;background:var(--bg2);border-radius:8px;font-size:14px;color:var(--ink2);line-height:1.7;border-left:3px solid var(--mint);}
 
+
+/* ZONE CARDS */
+.zone-card{background:var(--card);border-radius:12px;padding:16px 18px;margin-bottom:8px;border:1px solid var(--border);border-left:4px solid transparent;box-shadow:0 2px 8px var(--shadow);}
+.zc-1{border-left-color:#4cc9f0;}
+.zc-2{border-left-color:#4361ee;}
+.zc-3{border-left-color:#7209b7;}
+.zc-4{border-left-color:#f77f00;}
+.zc-5{border-left-color:#d62828;}
+.zc-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+.zc-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:var(--ink);}
+.zc-hr{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--ink3);}
+.zc-bar-wrap{height:6px;background:var(--bg3);border-radius:3px;margin-bottom:10px;}
+.zc-bar{height:100%;border-radius:3px;}
+.zc-detail{font-size:14px;color:var(--ink2);line-height:1.6;}
+/* FTP ZONES */
+.ftp-zone{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);}
+.ftp-zone:last-child{border-bottom:none;}
+.ftp-zone-name{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;color:var(--ink);width:120px;flex-shrink:0;}
+.ftp-zone-watts{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#8FC5B7;flex:1;}
+.ftp-zone-pct{font-size:12px;color:var(--ink3);}
+
 /* TOAST */
 .toast{position:fixed;top:calc(env(safe-area-inset-top,44px) + 70px);left:50%;transform:translateX(-50%);z-index:999;background:var(--mint);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:20px;pointer-events:none;opacity:0;transition:opacity .3s;white-space:nowrap;box-shadow:0 4px 16px var(--shadow);}
 .toast.show{opacity:1;}
@@ -774,7 +795,7 @@ table.sched tr.rest td{background:var(--bg2);}
     <button class="menu-item" id="mi-sleep" onclick="navTo('sleep')"><span class="mi-ico">💤</span><div><div class="mi-label">Sleep &amp; Hydration</div><div class="mi-sub">Science + playbook</div></div></button>
     <button class="menu-item" id="mi-mobility" onclick="navTo('mobility')"><span class="mi-ico">🤸</span><div><div class="mi-label">Mobility</div><div class="mi-sub">Mobility + all movement routines</div></div></button>
     <button class="menu-item" id="mi-nutrition" onclick="navTo('nutrition')"><span class="mi-ico">🥗</span><div><div class="mi-label">Nutrition</div><div class="mi-sub">Fueling + your food notes</div></div></button>
-    <button class="menu-item" id="mi-zones" onclick="navTo('zones')"><span class="mi-ico">❤️</span><div><div class="mi-label">HR Zones</div><div class="mi-sub">Zone guide + Z3 trap</div></div></button>
+    <button class="menu-item" id="mi-zones" onclick="navTo('zones')"><span class="mi-ico">❤️</span><div><div class="mi-label">Zones</div><div class="mi-sub">HR zones · FTP · Power zones</div></div></button>
     <button class="menu-item" id="mi-weight" onclick="navTo('weight')"><span class="mi-ico">⚖️</span><div><div class="mi-label">Weight</div><div class="mi-sub">Milestones + tracker</div></div></button>
     <button class="menu-item" id="mi-skills" onclick="navTo('skills')"><span class="mi-ico">🏁</span><div><div class="mi-label">Race Skills</div><div class="mi-sub">Criterium technique + race day</div></div></button>
     <button class="menu-item" id="mi-scripture" onclick="navTo('scripture')"><span class="mi-ico">✝️</span><div><div class="mi-label">Scripture</div><div class="mi-sub">Daily verse + Bible reading plan</div></div></button>
@@ -1574,6 +1595,24 @@ table.sched tr.rest td{background:var(--bg2);}
     </div>
   </div>
 
+  <div class="slabel">The Morning Training Habit</div>
+  <div class="cn mint"><div class="cnl">🌅 Why Morning Rides Change Everything</div><div class="cn-body">Training in the morning means the day never gets in the way. Work runs late, life gets busy, energy drops — all of these steal evening rides. Morning rides happen before any of that exists. <strong>The most consistent cyclists are almost always morning cyclists.</strong></div></div>
+  <div class="card">
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">😴 The Sleep → Ride Connection</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">Getting to bed by 10:30 PM makes a 6:00–6:30 AM ride completely achievable with 7.5–8 hours of sleep. That's not a sacrifice — that's a schedule.<br><br>
+    The hardest part of a morning ride isn't the ride. It's the first foot on the floor. Once you're up and kit is on, it's already done in your head.<br><br>
+    <strong>The trick:</strong> Lay your kit out the night before. Fill your water bottle before bed. Remove every decision from the morning. The fewer choices between you and the bike, the better.</div></div>
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">☀️ Building the Habit</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">Don't start with your hardest session. Start with a 30-minute easy spin — something so easy you can't talk yourself out of it. Build the identity first, the intensity second.<br><br>
+    <strong>Week 1:</strong> One morning ride. Any length.<br>
+    <strong>Week 2:</strong> Two morning rides.<br>
+    <strong>Week 3+:</strong> Morning is just when you ride.<br><br>
+    Once it's a habit you stop negotiating with yourself about whether to do it. That's the goal.</div></div>
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">⚡ Morning + Fasted Riding</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">Easy morning rides before breakfast are a powerful fat-burning combination. No glucose available means your body burns fat directly. Black coffee before the ride is fine — it enhances fat oxidation and sharpens focus.<br><br>
+    <strong>This applies to easy rides only.</strong> Hard sessions (threshold, VO₂) need fuel first — even if it's just a banana and coffee 30 minutes before. See the Nutrition screen for the full fasting guide.</div></div>
+  </div>
+
   <div class="slabel">Hydration Recipes</div>
 
   <div class="routine-block">
@@ -1924,6 +1963,27 @@ table.sched tr.rest td{background:var(--bg2);}
     </div>
   </div>
 
+  <div class="slabel">Intermittent Fasting for Cyclists</div>
+  <div class="card">
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">⏰ How IF Works for Cyclists</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">Intermittent fasting creates a natural calorie deficit without obsessive counting. Over time it improves insulin sensitivity and trains your body to burn fat more efficiently — both directly useful for cycling and weight loss.<br><br>
+    <strong>The version that works:</strong> Eating window 10am–8pm. Skip breakfast on easy days. Let morning rides happen fasted or semi-fasted. Your body taps fat stores, your fitness improves, and your weight trends down.<br><br>
+    This fits naturally with morning training — ride early, eat at 10am, close the window at 8pm.</div></div>
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">🌅 Fasted Morning Rides — Yes</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">Easy morning rides (Z1–Z2, 45–60 min) in a fasted state are genuinely effective for fat burning. Your body has no quick glucose to burn so it goes straight to fat stores.<br><br>
+    These sessions also improve your fat oxidation over time — meaning you become more efficient at using fat as fuel even during harder efforts. This is a real performance advantage on longer rides.<br><br>
+    <strong>What counts as fasted:</strong> No food for 8+ hours. Black coffee is fine — it actually enhances fat burning.</div></div>
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title" style="color:var(--red);">⚠️ Never Fast Before Hard Sessions</div><div class="exp-arr">›</div></div>
+    <div class="exp-body" style="border-left:3px solid var(--red);padding-left:12px;"><strong>This is non-negotiable.</strong> Tuesday threshold intervals and Friday VO₂ sessions require fuel beforehand. Training these sessions fasted leads to:<br><br>
+    • Poor performance — you won't hit the target zones<br>
+    • Muscle breakdown — your body cannibalises muscle for fuel<br>
+    • Incomplete adaptation — you get tired but not fit<br><br>
+    On hard training days, always eat something before riding — even if it's outside your usual window. A banana and black coffee 30 min before is enough. The fast can wait. The session cannot.</div></div>
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">💪 Protein Still Non-Negotiable</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">Whether you're fasting or not, hitting 175g+ protein daily is essential. It protects muscle mass during the calorie deficit. If your eating window is 10am–8pm, that's 10 hours to hit your protein target — completely achievable with the meal ideas in this app.<br><br>
+    <strong>Simple rule:</strong> Every meal in your window should have a substantial protein source. Don't save protein for dinner.</div></div>
+  </div>
+
   <div class="slabel">Meal Ideas — By Meal</div>
   <div class="cn sky"><div class="cnl">How to use this</div><div class="cn-body">Real meal ideas from a full 7-day cycling nutrition plan. Each includes approximate calories and protein. Mix and match freely.</div></div>
 
@@ -2035,30 +2095,71 @@ table.sched tr.rest td{background:var(--bg2);}
 </div>
 
 <div class="screen" id="screen-zones">
-<div class="sec">
-    <div class="sh"><h2>Heart Rate Zones</h2><div class="line"></div><div class="tag t-red">Based on ~184 Max HR (est. 220−36)</div></div>
-    <div class="cn">
-      <div class="cnl">Finding Your Real Max HR</div>
-      220−age gives 184 bpm as a starting estimate. <strong>After 4 weeks of base training, find your real number:</strong> warm up thoroughly, then ride up a steep hill as hard as you can for 3–4 minutes. Your peak HR reading is close to your true max. Recalibrate all zones below using that number.
-    </div>
-    <table class="zone-tbl">
-      <thead><tr><th>Zone</th><th>Name</th><th>Est. HR (184 max)</th><th>% Max HR</th><th>Feel</th><th>Used For</th><th>Intensity Bar</th></tr></thead>
-      <tbody>
-        <tr><td><span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;">Z1</span></td><td><div class="z-name" style="color:#4cc9f0;">Recovery</div></td><td>Under 110 bpm</td><td>&lt;60%</td><td>Effortless. Could go for hours.</td><td>Sun easy spin, warm-up, cool-down</td><td><div class="z-bar-wrap"><div class="z-bar" style="width:15%;background:#4cc9f0;"></div></div></td></tr>
-        <tr><td><span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;">Z2</span></td><td><div class="z-name" style="color:#4361ee;">Aerobic Base</div></td><td>110–130 bpm</td><td>60–70%</td><td>Conversational. Comfortable.</td><td>Thu easy ride, Sat long ride, Mon base</td><td><div class="z-bar-wrap"><div class="z-bar" style="width:35%;background:#4361ee;"></div></div></td></tr>
-        <tr><td><span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;">Z3</span></td><td><div class="z-name" style="color:#7209b7;">Tempo</div></td><td>130–148 bpm</td><td>70–80%</td><td>Comfortably hard. Short sentences.</td><td>Use sparingly — avoid "junk miles" here</td><td><div class="z-bar-wrap"><div class="z-bar" style="width:55%;background:#7209b7;"></div></div></td></tr>
-        <tr><td><span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;">Z4</span></td><td><div class="z-name" style="color:var(--orange);">Threshold</div></td><td>148–166 bpm</td><td>80–90%</td><td>Hard. Can't speak. Uncomfortable.</td><td>Tuesday intervals. Race pace zone.</td><td><div class="z-bar-wrap"><div class="z-bar" style="width:75%;background:var(--orange);"></div></div></td></tr>
-        <tr><td><span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;">Z5</span></td><td><div class="z-name" style="color:var(--red);">VO₂ Max</div></td><td>166–184 bpm</td><td>90–100%</td><td>All out. Can't speak at all.</td><td>Friday intervals. Race surges &amp; attacks.</td><td><div class="z-bar-wrap"><div class="z-bar" style="width:100%;background:var(--red);"></div></div></td></tr>
-      </tbody>
-    </table>
-    <div class="cn" style="margin-top:16px; border-left-color:var(--red);">
-      <div class="cnl" style="color:var(--red);">⚠️ The Z3 Trap</div>
-      Most amateur cyclists spend too much time in Zone 3 — it feels productive but it's the worst zone for adaptation. It's too hard to allow recovery, and too easy to build fitness. <strong>Your Thursday ride must stay in Z1–Z2. If it drifts to Z3, slow down.</strong> The ability to ride truly easy is a skill, and it takes discipline.
-    </div>
+
+  <div class="slabel">Heart Rate Zones</div>
+  <div class="cn"><div class="cnl">Based on ~184 Max HR (est. 220−36)</div><div class="cn-body">This is your estimated max. <strong>After 4 weeks of base training, find your real number:</strong> warm up thoroughly, then ride as hard as you can up a steep hill for 3–4 minutes. Your peak HR reading is close to your true max. Update your zones from there.</div></div>
+
+  <div class="zone-card zc-1">
+    <div class="zc-top"><div class="zc-name">Z1 — Recovery</div><div class="zc-hr">Under 110 bpm</div></div>
+    <div class="zc-bar-wrap"><div class="zc-bar" style="width:15%;background:#4cc9f0;"></div></div>
+    <div class="zc-detail">Effortless. Could go for hours. Used for: warm-up, cool-down, Sunday easy spin.</div>
   </div>
+  <div class="zone-card zc-2">
+    <div class="zc-top"><div class="zc-name">Z2 — Aerobic Base</div><div class="zc-hr">110–130 bpm</div></div>
+    <div class="zc-bar-wrap"><div class="zc-bar" style="width:35%;background:#4361ee;"></div></div>
+    <div class="zc-detail">Conversational. Comfortable. Used for: Thursday easy ride, Saturday long ride, Monday base work. <strong>This zone builds your engine.</strong></div>
+  </div>
+  <div class="zone-card zc-3">
+    <div class="zc-top"><div class="zc-name">Z3 — Tempo</div><div class="zc-hr">130–148 bpm</div></div>
+    <div class="zc-bar-wrap"><div class="zc-bar" style="width:55%;background:#7209b7;"></div></div>
+    <div class="zc-detail">Comfortably hard. Short sentences only. ⚠️ <strong>The Z3 trap:</strong> too hard for easy days, too easy for hard days. Avoid drifting here on easy rides — it kills recovery without building fitness.</div>
+  </div>
+  <div class="zone-card zc-4">
+    <div class="zc-top"><div class="zc-name">Z4 — Threshold</div><div class="zc-hr">148–166 bpm</div></div>
+    <div class="zc-bar-wrap"><div class="zc-bar" style="width:75%;background:#f77f00;"></div></div>
+    <div class="zc-detail">Hard. Focused. Sustainable for 20–40 min. Used for: Tuesday threshold intervals. <strong>This is where your FTP lives.</strong> Raises the ceiling on everything below it.</div>
+  </div>
+  <div class="zone-card zc-5">
+    <div class="zc-top"><div class="zc-name">Z5 — VO₂ Max</div><div class="zc-hr">166–184 bpm</div></div>
+    <div class="zc-bar-wrap"><div class="zc-bar" style="width:95%;background:#d62828;"></div></div>
+    <div class="zc-detail">Very hard. 1–5 min efforts max. Used for: Friday VO₂ intervals. Trains your body to process oxygen faster. Directly simulates criterium attacks and surges.</div>
+  </div>
+
+  <div class="slabel">FTP &amp; Power Zones</div>
+  <div class="cn mint"><div class="cnl">What is FTP?</div><div class="cn-body"><strong>Functional Threshold Power</strong> — the maximum average power in watts you can sustain for ~60 minutes. It's the gold standard for measuring cycling fitness and setting precise training targets. Your Tuesday intervals are prescribed at 95–105% FTP — knowing your number makes those sessions properly calibrated.</div></div>
+
+  <div class="slabel">Your FTP</div>
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;">
+    <input type="number" id="ftpInput" placeholder="e.g. 220" step="1"
+      style="flex:1;padding:12px;border:1px solid var(--border);border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;background:var(--card);color:var(--ink);text-align:center;">
+    <button onclick="saveFTP()" style="padding:12px 20px;background:#8FC5B7;color:#fff;border:none;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;">Save</button>
+  </div>
+  <div id="ftpZones"></div>
+
+  <div class="slabel">How to Test Your FTP</div>
+  <div class="card">
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">🏆 Ramp Test (Recommended — Wahoo)</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">The easiest and least painful option. Your Wahoo trainer guides you through it automatically.<br><br>
+    <strong>How it works:</strong> Start at a low wattage, increase by a set amount every minute until you physically can't hold the power. The test does the math for you.<br><br>
+    <strong>Formula:</strong> Best 1-minute power × 0.75 = FTP<br><br>
+    <strong>In the Wahoo app:</strong> Workouts → FTP Test → Ramp Test. Takes about 20–25 minutes total including warm-up. Do it when fresh — not after a hard day.</div></div>
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">⏱ 20-Minute Test (Classic)</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">The original field test. More painful but very accurate.<br><br>
+    <strong>Protocol:</strong><br>
+    1. Warm up 20 min easy<br>
+    2. Ride as hard as you can sustain for exactly 20 min<br>
+    3. Record your average power<br>
+    4. Multiply by 0.95 = your FTP<br><br>
+    <strong>Tips:</strong> Pace yourself — most people go too hard in the first 5 minutes and blow up. Start slightly conservative and build. A smart trainer in ERG mode won't help here — use resistance mode so you control the effort.</div></div>
+    <div class="expander"><div class="exp-hdr" onclick="tog(this)"><div class="exp-title">📅 When to Retest</div><div class="exp-arr">›</div></div>
+    <div class="exp-body">Every <strong>4–6 weeks</strong> as your fitness improves. Your FTP will increase as training progresses — recalibrating keeps your intervals properly challenging.<br><br>Good times to retest: end of Phase 1, end of Phase 2, start of Phase 3. Don't test during taper week.</div></div>
+  </div>
+
 </div>
 
 <div class="screen" id="screen-weight">
+
+  <div class="cn" style="border-left-color:#8FC5B7;"><div class="cnl" style="color:#8FC5B7;">📈 A Word on the Numbers</div><div class="cn-body">Weight fluctuates 2–4 lbs day to day from water, food timing, and stress. The number today is not the trend. <strong>The trend over weeks is what matters.</strong> Log consistently, weigh on the same day each week, and trust the process. You're building fitness and habits that compound. The weight follows.</div></div>
 
   <div class="slabel">Daily Fuel Targets</div>
   <div class="cn mint"><div class="cnl">⛽ Fuel = Performance</div><div class="cn-body">These are <strong>fuel targets, not restrictions.</strong> Eat enough to train hard, recover fully, and let your body composition improve naturally. The deficit comes from smart food choices — not from going hungry.</div></div>
@@ -3211,6 +3312,35 @@ function durationToDisplay(mins){
   return m+':'+(s<10?'0':'')+s;
 }
 
+
+// ── FTP ──
+function saveFTP(){
+  const val=parseInt(document.getElementById('ftpInput').value);
+  if(!val||val<50||val>500){toast('Enter a valid FTP (50–500 watts)');return;}
+  S.set('ftp',val);
+  renderFTPZones(val);
+  toast('FTP saved — '+val+'W 💪');
+}
+function renderFTPZones(ftp){
+  if(!ftp)ftp=S.get('ftp',0);
+  const el=document.getElementById('ftpZones');
+  if(!el)return;
+  if(!ftp){el.innerHTML='<div style="font-size:14px;color:var(--ink3);padding:8px 0;font-style:italic;">Enter your FTP above to see your power zones.</div>';return;}
+  const zones=[
+    {name:'Z1 Recovery',  pct:'Under 55%', lo:0,       hi:Math.round(ftp*0.55), color:'#4cc9f0'},
+    {name:'Z2 Aerobic',   pct:'56–75%',    lo:Math.round(ftp*0.56), hi:Math.round(ftp*0.75), color:'#4361ee'},
+    {name:'Z3 Tempo',     pct:'76–90%',    lo:Math.round(ftp*0.76), hi:Math.round(ftp*0.90), color:'#7209b7'},
+    {name:'Z4 Threshold', pct:'91–105%',   lo:Math.round(ftp*0.91), hi:Math.round(ftp*1.05), color:'#f77f00'},
+    {name:'Z5 VO₂ Max',   pct:'106–120%',  lo:Math.round(ftp*1.06), hi:Math.round(ftp*1.20), color:'#d62828'},
+  ];
+  el.innerHTML='<div class="card">'+zones.map(z=>`
+    <div class="ftp-zone">
+      <div class="ftp-zone-name" style="color:${z.color};">${z.name}</div>
+      <div class="ftp-zone-watts">${z.lo>0?z.lo+' – ':' < '}${z.hi}W</div>
+      <div class="ftp-zone-pct">${z.pct} FTP</div>
+    </div>`).join('')+'</div>';
+}
+
 // ── TOAST ──
 function toast(msg,dur=2200){
   const t=document.getElementById('toast');
@@ -3224,6 +3354,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   loadScripture();
   loadTodaySession();
   initSwipe();
+  renderFTPZones(S.get('ftp',0));
+  const savedFTP=S.get('ftp',0);if(savedFTP){const fi=document.getElementById('ftpInput');if(fi)fi.value=savedFTP;}
   loadChecklist();
   loadWater();
   buildRPE();
