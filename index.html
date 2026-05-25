@@ -642,11 +642,11 @@ table.sched tr.rest td{background:var(--bg2);}
   transition:filter .15s;
 }
 .pb-btn:active{filter:brightness(.82);}
-.pb-sleep{background:linear-gradient(135deg,#f0eaf8,#e5daf2);}
+.pb-goals{background:linear-gradient(135deg,#f0eaf8,#e5daf2);}
 .pb-hydrate{background:linear-gradient(135deg,#e5f0f8,#d5e8f5);}
 .pb-eat{background:linear-gradient(135deg,#e8f5ee,#d5eedd);}
 .pb-move{background:linear-gradient(135deg,#fdf3e5,#f8e8d0);}
-.pb-train{background:linear-gradient(135deg,#fdecea,#f8d8d2);}
+.pb-cycle{background:linear-gradient(135deg,#fdecea,#f8d8d2);}
 .pb-ico{font-size:22px;line-height:1;}
 .pb-lbl{
   font-family:'Barlow Condensed',sans-serif;
@@ -656,27 +656,53 @@ table.sched tr.rest td{background:var(--bg2);}
   text-transform:uppercase;
   color:rgba(0,0,0,0.5);
 }
-.pb-sleep .pb-lbl{color:#5a3e7a;}
+.pb-goals .pb-lbl{color:#5a3e7a;}
 .pb-hydrate .pb-lbl{color:#2a6fa8;}
 .pb-eat .pb-lbl{color:#2a6e48;}
 .pb-move .pb-lbl{color:#b85a10;}
-.pb-train .pb-lbl{color:#c23b22;}
+.pb-cycle .pb-lbl{color:#c23b22;}
 @media(prefers-color-scheme:dark){
-  .pb-sleep{background:linear-gradient(135deg,#1a1535,#221848);}
+  .pb-goals{background:linear-gradient(135deg,#1a1535,#221848);}
   .pb-hydrate{background:linear-gradient(135deg,#0d2035,#122840);}
   .pb-eat{background:linear-gradient(135deg,#0d2518,#102e1e);}
   .pb-move{background:linear-gradient(135deg,#1e1208,#261608);}
-  .pb-train{background:linear-gradient(135deg,#200808,#280a0a);}
-  .pb-sleep .pb-lbl{color:#9b7ec8;}
+  .pb-cycle{background:linear-gradient(135deg,#200808,#280a0a);}
+  .pb-goals .pb-lbl{color:#9b7ec8;}
   .pb-hydrate .pb-lbl{color:#6aafd6;}
   .pb-eat .pb-lbl{color:#5ab07a;}
   .pb-move .pb-lbl{color:#e09050;}
-  .pb-train .pb-lbl{color:#e07060;}
+  .pb-cycle .pb-lbl{color:#e07060;}
 }
 
 .mi-macros{font-size:12px;font-weight:700;color:var(--mint);font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;margin-top:3px;}
 
-/* RACE HERO CARD — CHECKERED FLAG */
+/* GOALS SCREEN */
+.goal-section-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--mint);margin:20px 0 10px;}
+.race-countdown-card{background:var(--card);border-radius:14px;padding:18px;margin-bottom:10px;border:1px solid var(--border);box-shadow:0 2px 8px var(--shadow);display:flex;align-items:center;gap:16px;}
+.rc-flag{font-size:28px;flex-shrink:0;}
+.rc-info{flex:1;}
+.rc-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;text-transform:uppercase;color:var(--ink);line-height:1;}
+.rc-date{font-size:13px;color:var(--ink3);margin-top:2px;}
+.rc-days{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:var(--mint);line-height:1;text-align:right;flex-shrink:0;}
+.rc-days span{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);}
+.rc-days.race-day{color:var(--red);}
+.perf-card{background:var(--card);border-radius:14px;padding:18px;margin-bottom:10px;border:1px solid var(--border);box-shadow:0 2px 8px var(--shadow);}
+.perf-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
+.perf-row:last-child{border-bottom:none;padding-bottom:0;}
+.perf-row:first-child{padding-top:0;}
+.perf-label{font-size:13px;color:var(--ink3);}
+.perf-val{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:var(--ink);}
+.perf-goal{font-size:12px;color:var(--mint);font-weight:700;}
+.ftp-hist-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
+.ftp-hist-row:last-child{border-bottom:none;}
+.ftp-date{font-size:13px;color:var(--ink3);}
+.ftp-watts{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--ink);}
+.ftp-delta{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;}
+.ftp-delta.up{color:var(--mint);}
+.ftp-delta.down{color:var(--red);}
+.add-race-form{background:var(--card);border-radius:14px;padding:18px;margin-bottom:10px;border:1px solid var(--border);display:none;}
+.add-race-form.open{display:block;}
+/* GOALS SCREEN */
 .race-theme{
   background:#1a1714 !important;
   position:relative;
@@ -788,7 +814,8 @@ table.sched tr.rest td{background:var(--bg2);}
   </div>
   
   <div class="menu-items">
-    <button class="menu-item on" id="mi-today" onclick="navTo('today')" ><span class="mi-ico">🏠</span><div><div class="mi-label">Today</div><div class="mi-sub">Dashboard + daily tracking</div></div></button>
+    <button class="menu-item" id="mi-goals" onclick="navTo('goals')"><span class="mi-ico">🏁</span><div><div class="mi-label">Goals</div><div class="mi-sub">Races · FTP · Weight tracking</div></div></button>
+    <button class="menu-item" id="mi-today" onclick="navTo('today')" ><span class="mi-ico">🏠</span><div><div class="mi-label">Today</div><div class="mi-sub">Dashboard + daily tracking</div></div></button>
     <button class="menu-item" id="mi-log" onclick="navTo('log')"><span class="mi-ico">📝</span><div><div class="mi-label">Log a Ride</div><div class="mi-sub">Record your sessions</div></div></button>
     <button class="menu-item" id="mi-progress" onclick="navTo('progress')"><span class="mi-ico">📈</span><div><div class="mi-label">Progress</div><div class="mi-sub">Calendar + metric graphs</div></div></button>
     <button class="menu-item" id="mi-plan" onclick="navTo('plan')"><span class="mi-ico">📅</span><div><div class="mi-label">Training Plan</div><div class="mi-sub">All 4 phases + session notes</div></div></button>
@@ -1470,6 +1497,69 @@ table.sched tr.rest td{background:var(--bg2);}
     <div class="cn red" style="margin-top:12px;"><div class="cnl">Race Week Taper</div><div class="cn-body"><strong>Mon:</strong> 30 min easy · <strong>Tue:</strong> Full rest · <strong>Wed:</strong> 30 min spin + 3x30s hard · <strong>Thu:</strong> Full rest · <strong>Fri:</strong> Rest · <strong>Sat:</strong> RACE DAY 🏁</div></div>
   </div>
 </div>
+
+<!-- ══════════════ GOALS SCREEN ══════════════ -->
+<div class="screen" id="screen-goals">
+<div class="sec">
+
+  <!-- RACE COUNTDOWNS -->
+  <div class="goal-section-title">🏁 Race Calendar</div>
+  <div id="raceCountdowns"></div>
+
+  <!-- ADD RACE BUTTON -->
+  <button onclick="toggleAddRace()" style="width:100%;padding:12px;background:none;border:2px dashed var(--border);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mint);cursor:pointer;margin-bottom:16px;">+ Add a Race</button>
+  <div class="add-race-form" id="addRaceForm">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink);margin-bottom:12px;">New Race</div>
+    <input type="text" id="newRaceName" placeholder="Race name" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--bg);color:var(--ink);margin-bottom:8px;box-sizing:border-box;">
+    <input type="date" id="newRaceDate" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--bg);color:var(--ink);margin-bottom:8px;box-sizing:border-box;">
+    <input type="text" id="newRaceLocation" placeholder="Location (optional)" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:var(--bg);color:var(--ink);margin-bottom:12px;box-sizing:border-box;">
+    <div style="display:flex;gap:8px;">
+      <button onclick="saveNewRace()" style="flex:1;padding:11px;background:var(--mint);color:#fff;border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;">Save</button>
+      <button onclick="toggleAddRace()" style="flex:1;padding:11px;background:var(--bg2);color:var(--ink2);border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;">Cancel</button>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE GOALS -->
+  <div class="goal-section-title">⚡ Performance Goals</div>
+  <div class="perf-card">
+    <div class="perf-row">
+      <div><div class="perf-label">Current FTP</div><div class="perf-val" id="goalCurrentFTP">— w</div></div>
+      <div style="text-align:right;"><div class="perf-label">Season Target</div><div class="perf-goal">250w</div></div>
+    </div>
+    <div class="perf-row">
+      <div><div class="perf-label">Current w/kg</div><div class="perf-val" id="goalWKG">—</div></div>
+      <div style="text-align:right;"><div class="perf-label">Season Target</div><div class="perf-goal">3.0 w/kg</div></div>
+    </div>
+    <div class="perf-row">
+      <div><div class="perf-label">FTP to reach 3.0 w/kg</div><div class="perf-val" id="goalFTPNeeded">—</div></div>
+      <div style="text-align:right;"><div class="perf-label">At current weight</div><div class="perf-goal" id="goalFTPNote"></div></div>
+    </div>
+  </div>
+
+  <!-- FTP HISTORY -->
+  <div class="goal-section-title">📈 FTP History</div>
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;">
+    <input type="number" id="ftpHistInput" placeholder="e.g. 210" step="1"
+      style="flex:1;padding:12px;border:1px solid var(--border);border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;background:var(--card);color:var(--ink);text-align:center;">
+    <button onclick="logFTPEntry()" style="padding:12px 20px;background:var(--mint);color:#fff;border:none;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;">Log</button>
+  </div>
+  <div class="perf-card" id="ftpHistory"></div>
+
+  <!-- WEIGHT TRACKING -->
+  <div class="goal-section-title">⚖️ Weight Tracking</div>
+  <div class="cn" style="border-left-color:#8FC5B7;margin-bottom:12px;"><div class="cnl" style="color:#8FC5B7;">📈 A Word on the Numbers</div><div class="cn-body">Weight fluctuates 2–4 lbs day to day from water, food timing, and stress. <strong>The trend over weeks is what matters.</strong> Log consistently, weigh on the same day each week, and trust the process.</div></div>
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;">
+    <input type="number" id="goalsWeightInput" placeholder="lbs" step="0.1"
+      style="flex:1;padding:12px;border:1px solid var(--border);border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;background:var(--card);color:var(--ink);text-align:center;">
+    <button onclick="logWeightFromGoals()" style="padding:12px 20px;background:var(--mint);color:#fff;border:none;border-radius:10px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;">Log</button>
+  </div>
+  <div id="goalsWeightHistory" style="margin-bottom:8px;"></div>
+  <div class="goal-section-title" style="margin-top:8px;">Milestones</div>
+  <div id="goalsWeightMilestones"></div>
+
+</div>
+</div>
+
 <div class="screen" id="screen-sleep">
 <div class="sec">
     <div class="sh"><h2>Sleep &amp; Hydration</h2><div class="line"></div><div class="tag t-purple">Your Secret Weapons</div></div>
@@ -2426,7 +2516,7 @@ const S={
 };
 
 // ── SETTINGS ──
-function getSettings(){return S.get('settings',{name:'IKEA Criterium',date:'2026-07-01',startWeight:207,goalWeight:187});}
+function getSettings(){return S.get('settings',{name:'IKEA Criterium',date:'2026-07-01',startWeight:211,goalWeight:185});}
 function openSettings(){
   const s=getSettings();
   document.getElementById('emName').value=s.name;
@@ -2490,7 +2580,7 @@ function applySettings(){
 // ── MENU & NAV ──
 function openMenu(){document.getElementById('menuDrawer').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
 function closeMenu(){document.getElementById('menuDrawer').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
-const SCREENS=['today','log','progress','plan','sleep','mobility','nutrition','zones','weight','skills','scripture'];
+const SCREENS=['today','log','progress','plan','sleep','mobility','nutrition','zones','weight','skills','scripture','goals'];
 function navTo(id){
   const cur=SCREENS.find(s=>{const e=document.getElementById('screen-'+s);return e&&e.classList.contains('on');});
   if(cur&&cur!==id){navHistory.push(cur);if(navHistory.length>20)navHistory.shift();}
@@ -2504,6 +2594,7 @@ function navTo(id){
   closeMenu();
   if(id==='progress'){renderCalendar();renderChart();}
   if(id==='weight'){renderWeightHistory();renderWeightMilestones();}
+  if(id==='goals'){renderRaceCountdowns();renderFTPHistory();renderGoalPerformance();renderGoalsWeight();}
 }
 function showPhase(idx,el){
   document.querySelectorAll('.ppane').forEach(p=>p.classList.remove('on'));
@@ -2750,7 +2841,7 @@ function logWeight(){
   if(h.length>52) h=h.slice(0,52);
   S.set('weight_history',h);
   document.getElementById('weightInput').value='';
-  renderWeightHistory();renderWeightMilestones();toast('Weight logged ✓');
+  renderWeightHistory();renderWeightMilestones();renderGoalsWeight();renderGoalPerformance();toast('Weight logged ✓');
 }
 function renderWeightHistory(){
   const h=S.get('weight_history',[]);
@@ -2767,11 +2858,6 @@ function renderWeightHistory(){
     const dHtml=delta?`<span class="wl-d ${parseFloat(delta)<0?'down':'up'}">${parseFloat(delta)>0?'+':''}${delta}</span>`:'<span style="font-size:12px;color:var(--ink3);">Start</span>';
     return`<div class="wl-row"><span class="wl-date">${e.date}</span><span class="wl-lbs">${e.lbs}</span><div style="text-align:right;">${dHtml}<div style="font-size:11px;color:var(--ink3);margin-top:2px;">${toGoal>0?toGoal+' to go':'🎯 Goal!'}</div></div></div>`;
   }).join('');
-  // Update summary in header
-  const total=checks.length;
-  const done=Object.values(stored).filter(Boolean).length;
-  const meta=document.getElementById('nnMeta');
-  if(meta) meta.textContent=done===0?'Tap to review your daily checklist':done===total?'All '+total+' done ✓':done+' of '+total+' complete';
 }
 function renderWeightMilestones(){
   const el=document.getElementById('weightMilestones');
@@ -3413,6 +3499,167 @@ function renderCTHR(cthr){
   </div>`;
 }
 
+function logWeightFromGoals(){
+  const el=document.getElementById('goalsWeightInput');
+  const val=parseFloat(el.value);
+  if(!val||val<50||val>500){toast('Enter a valid weight');return;}
+  const h=S.get('weight_history',[]);
+  const today=new Date().toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});
+  h.unshift({date:today,lbs:val});
+  S.set('weight_history',h);
+  el.value='';
+  renderGoalsWeight();renderGoalPerformance();renderWeightHistory();renderWeightMilestones();
+  toast('Weight logged ✓');
+}
+
+function renderGoalsWeight(){
+  const h=S.get('weight_history',[]);
+  const s=getSettings();
+  const el=document.getElementById('goalsWeightHistory');
+  const mel=document.getElementById('goalsWeightMilestones');
+  if(el){
+    if(!h.length){el.innerHTML='<div style="font-size:14px;color:var(--ink3);padding:8px 0;">No entries yet. Log your weight below.</div>';}
+    else{
+      el.innerHTML=h.slice(0,12).map((e,i)=>{
+        const prev=h[i+1];
+        const delta=prev?(e.lbs-prev.lbs).toFixed(1):null;
+        const toGoal=(e.lbs-s.goalWeight).toFixed(1);
+        const dHtml=delta?`<span class="wl-d ${parseFloat(delta)<0?'down':'up'}">${parseFloat(delta)>0?'+':''}${delta}</span>`:'<span style="font-size:12px;color:var(--ink3);">Start</span>';
+        return`<div class="wl-row"><span class="wl-date">${e.date}</span><span class="wl-lbs">${e.lbs}</span><div style="text-align:right;">${dHtml}<div style="font-size:11px;color:var(--ink3);margin-top:2px;">${toGoal>0?toGoal+' to go':'🎯 Goal!'}</div></div></div>`;
+      }).join('');
+    }
+  }
+  if(mel){
+    const current=h.length?h[0].lbs:s.startWeight;
+    const lost=(s.startWeight-current).toFixed(1);
+    const toGo=Math.max(0,(current-s.goalWeight)).toFixed(1);
+    const race=new Date(s.date+'T12:00:00');
+    const now=new Date();
+    const weeksLeft=Math.max(0,Math.ceil((race-now)/604800000));
+    const projPerWeek=weeksLeft>0&&toGo>0?(toGo/weeksLeft).toFixed(1):0;
+    mel.innerHTML=`
+      <div class="wt-milestone start"><span class="wt-date">Starting Weight</span><span class="wt-lbs">${s.startWeight} lbs</span><span class="wt-delta">Baseline</span></div>
+      <div class="wt-milestone current"><span class="wt-date">Current Weight</span><span class="wt-lbs">${current} lbs</span><span class="wt-delta">${lost>0?'−'+lost+' lbs':'—'}</span></div>
+      ${weeksLeft>0&&toGo>0?`<div class="wt-milestone" style="border-left-color:var(--orange);"><span class="wt-date">${weeksLeft} weeks to race</span><span class="wt-lbs" style="font-size:18px;">${projPerWeek} lbs/wk</span><span class="wt-delta">needed</span></div>`:''}
+      <div class="wt-milestone race"><span class="wt-date">Race Day Goal 🏁</span><span class="wt-lbs" style="color:var(--red);">${s.goalWeight} lbs</span><span class="wt-delta">${toGo>0?toGo+' to go':'🎯 Done!'}</span></div>
+    `;
+  }
+}
+
+// ── GOALS SCREEN ──
+const HARDCODED_RACES = [
+  {name:'IKEA Criterium',date:'2026-07-01',location:'Dartmouth, NS',icon:'🏁'},
+  {name:"Starr's Point Circuit Race",date:'2026-07-25',location:'Starr\'s Point, NS',icon:'🏁'},
+  {name:'Gran Fondo Baie Sainte-Marie',date:'2026-09-13',location:'Baie Sainte-Marie, NS',icon:'🚴'},
+];
+
+function renderRaceCountdowns(){
+  const el=document.getElementById('raceCountdowns');
+  if(!el) return;
+  const now=new Date(); now.setHours(0,0,0,0);
+  const custom=S.get('custom_races',[]);
+  const all=[...HARDCODED_RACES,...custom].sort((a,b)=>new Date(a.date)-new Date(b.date));
+  el.innerHTML=all.map(r=>{
+    const rd=new Date(r.date+'T12:00:00');
+    const diff=Math.round((rd-now)/86400000);
+    const past=diff<0;
+    const today=diff===0;
+    let daysHtml;
+    if(today) daysHtml=`<div class="rc-days race-day">${r.icon}<span>Race Day!</span></div>`;
+    else if(past) daysHtml=`<div class="rc-days" style="color:var(--ink3);">Done<span>complete</span></div>`;
+    else daysHtml=`<div class="rc-days">${diff}<span>days</span></div>`;
+    const dateStr=rd.toLocaleDateString('en-CA',{month:'long',day:'numeric',year:'numeric'});
+    return`<div class="race-countdown-card">
+      <div class="rc-flag">${r.icon}</div>
+      <div class="rc-info">
+        <div class="rc-name">${r.name}</div>
+        <div class="rc-date">${dateStr}${r.location?' · '+r.location:''}</div>
+      </div>
+      ${daysHtml}
+    </div>`;
+  }).join('');
+}
+
+function toggleAddRace(){
+  const f=document.getElementById('addRaceForm');
+  f.classList.toggle('open');
+}
+
+function saveNewRace(){
+  const name=document.getElementById('newRaceName').value.trim();
+  const date=document.getElementById('newRaceDate').value;
+  const loc=document.getElementById('newRaceLocation').value.trim();
+  if(!name||!date){toast('Please enter a name and date');return;}
+  const races=S.get('custom_races',[]);
+  races.push({name,date,location:loc,icon:'🏁'});
+  S.set('custom_races',races);
+  document.getElementById('newRaceName').value='';
+  document.getElementById('newRaceDate').value='';
+  document.getElementById('newRaceLocation').value='';
+  toggleAddRace();
+  renderRaceCountdowns();
+  toast('Race added! 🏁');
+}
+
+function logFTPEntry(){
+  const val=parseInt(document.getElementById('ftpHistInput').value);
+  if(!val||val<50||val>500){toast('Enter a valid FTP (50–500w)');return;}
+  const h=S.get('ftp_history',[]);
+  const today=new Date().toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});
+  h.unshift({date:today,watts:val});
+  S.set('ftp_history',h);
+  S.set('ftp',val);
+  document.getElementById('ftpHistInput').value='';
+  renderFTPHistory();
+  renderGoalPerformance();
+  renderFTPZones(val);
+  const fi=document.getElementById('ftpInput');if(fi)fi.value=val;
+  toast('FTP logged — '+val+'w 💪');
+}
+
+function renderFTPHistory(){
+  const el=document.getElementById('ftpHistory');
+  if(!el) return;
+  const h=S.get('ftp_history',[]);
+  // Seed with known test results if empty
+  if(!h.length){
+    el.innerHTML='<div style="font-size:14px;color:var(--ink3);padding:8px 0;">No FTP entries yet. Log your first test above.</div>';
+    return;
+  }
+  el.innerHTML=h.map((e,i)=>{
+    const prev=h[i+1];
+    const delta=prev?(e.watts-prev.watts):null;
+    const deltaHtml=delta!==null?`<span class="ftp-delta ${delta>=0?'up':'down'}">${delta>=0?'+':''}${delta}w</span>`:'<span style="font-size:12px;color:var(--ink3);">Baseline</span>';
+    return`<div class="ftp-hist-row">
+      <span class="ftp-date">${e.date}</span>
+      <span class="ftp-watts">${e.watts}w</span>
+      ${deltaHtml}
+    </div>`;
+  }).join('');
+}
+
+function renderGoalPerformance(){
+  const ftp=S.get('ftp',0);
+  const wh=S.get('weight_history',[]);
+  const currentWeight=wh.length?wh[0].lbs:0;
+  const ftpEl=document.getElementById('goalCurrentFTP');
+  const wkgEl=document.getElementById('goalWKG');
+  const neededEl=document.getElementById('goalFTPNeeded');
+  const noteEl=document.getElementById('goalFTPNote');
+  if(ftpEl) ftpEl.textContent=ftp?ftp+'w':'—';
+  if(wkgEl&&ftp&&currentWeight){
+    const kg=currentWeight*0.453592;
+    const wkg=(ftp/kg).toFixed(2);
+    wkgEl.textContent=wkg+' w/kg';
+  }
+  if(neededEl&&currentWeight){
+    const kg=currentWeight*0.453592;
+    const needed=Math.round(3.0*kg);
+    neededEl.textContent=needed+'w';
+    if(noteEl) noteEl.textContent='at '+currentWeight+'lbs';
+  }
+}
+
 // ── FTP ──
 function saveFTP(){
   const val=parseInt(document.getElementById('ftpInput').value);
@@ -3457,6 +3704,26 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderFTPZones(S.get('ftp',0));
   const savedFTP=S.get('ftp',0);if(savedFTP){const fi=document.getElementById('ftpInput');if(fi)fi.value=savedFTP;}
   renderCTHR(S.get('cthr',0));
+  // Seed FTP history with known test results if not already set
+  if(!S.get('ftp_history_seeded',false)){
+    const existing=S.get('ftp_history',[]);
+    if(!existing.length){
+      S.set('ftp_history',[
+        {date:'May 2026',watts:197},
+        {date:'Apr 2026',watts:182},
+      ]);
+      S.set('ftp',197);
+    }
+    S.set('ftp_history_seeded',true);
+  }
+  // Seed weight history if not already set
+  if(!S.get('weight_history_seeded',false)){
+    const wh=S.get('weight_history',[]);
+    if(!wh.length){
+      S.set('weight_history',[{date:'May 2026',lbs:197}]);
+    }
+    S.set('weight_history_seeded',true);
+  }
   const savedCTHR=S.get('cthr',0);if(savedCTHR){const ci=document.getElementById('cthrInput');if(ci)ci.value=savedCTHR;}
   loadChecklist();
   loadWater();
@@ -3473,9 +3740,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   <!-- BOTTOM PILLAR BAR -->
   <div class="pillar-bar" id="pillarBar">
-    <button class="pb-btn pb-sleep" onclick="pillarNav('sleep')">
-      <span class="pb-ico">💤</span>
-      <span class="pb-lbl">Sleep</span>
+    <button class="pb-btn pb-goals" onclick="pillarNav('goals')">
+      <span class="pb-ico">🏁</span>
+      <span class="pb-lbl">Goals</span>
     </button>
     <button class="pb-btn pb-hydrate" onclick="pillarNavScroll('today','waterDrops')">
       <span class="pb-ico">💧</span>
@@ -3489,9 +3756,9 @@ document.addEventListener('DOMContentLoaded',()=>{
       <span class="pb-ico">🤸</span>
       <span class="pb-lbl">Move</span>
     </button>
-    <button class="pb-btn pb-train" onclick="pillarNav('plan')">
+    <button class="pb-btn pb-cycle" onclick="pillarNav('plan')">
       <span class="pb-ico">🚴</span>
-      <span class="pb-lbl">Train</span>
+      <span class="pb-lbl">Cycle</span>
     </button>
   </div>
 </body>
